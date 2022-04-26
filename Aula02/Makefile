@@ -1,5 +1,5 @@
-TARGET = hello
-OBJECT = hello.o
+TARGET = entrada
+OBJECT = entrada.o
 
 all: $(OBJECT)
 	ld -s -o $(TARGET) $(OBJECT)
