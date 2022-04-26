@@ -22,7 +22,7 @@ _start:
     mov rdx, tam2
     int 0x80
 
-
+exit:
     ; sempre usar essas 3 instrucoes para terminar o programa
     mov rax, 0x01 ; Encerra o pragrama | mov descola dest para src
     mov rbx, 0x00 ; valor de retorno 0
