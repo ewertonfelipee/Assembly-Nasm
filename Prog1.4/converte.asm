@@ -8,7 +8,7 @@ section .text
 
 global _start
 
-_start:
+_start
     call converter_valor
     call mostrar_valor
     mov eax, SYS_EXIT
