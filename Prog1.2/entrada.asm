@@ -13,34 +13,35 @@ segment .data ; parte de uma section
     
 section .data ; somente para termos constantes
     msg db "Digite o seu nome: ", lf, null
-    siz equ $- msg
+    size equ $- msg
     msg2 db "Seu nome eh: ", lf, null
-    siz2 equ $- msg
+    size2 equ $- msg
 
 section .bss
-    name resb   1
+    name resb   1 ; essa linha diz que vai ser armazenado byte por byte
 
 section .text
 
 global _start
 
 _start:
+    xor rax, rax
     mov rax, sys_write
     mov rbx, std_out
     mov rcx, msg
-    mov rdx, siz
+    mov rdx, size
     int sys_call
 
     mov rax, sys_read
     mov rbx, std_in
     mov rcx, name
-    mov rdx, 0x0A
+    mov rdx, 0xA
     int sys_call
 
     mov rax, sys_write
     mov rbx, std_out
     mov rcx, msg2
-    mov rdx, siz2
+    mov rdx, size2
     int sys_call
 
 exit:

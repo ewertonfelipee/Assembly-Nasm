@@ -1,10 +1,10 @@
 segment .data
     LF          EQU 0x0A
     NULL        EQU 0X0D
-    SYS_EXIT    EQU 0X01
     RET_EXIT    EQU 0X00
     STD_IN      EQU 0X00
     STD_OUT     EQU 0X01
+    SYS_EXIT    EQU 0X01
     SYS_READ    EQU 0X03
     SYS_WRITE   EQU 0X04
     SYS_CALL    EQU 0X80
@@ -28,15 +28,13 @@ _start:
     MOV EBX, DWORD [y]
     CMP EAX, EBX
     JGE  GREATER
-    ; JLE  LESSER
-    MOV ECX, msg2
-    MOV EDX, tam2
+    JLE  LESSER
     JMP FINAL
 
 ;   LESSER, GREATER AND EXIT ARE LABELS
-; LESSER:
-;     MOV ECX, msg2
-;     MOV EDX, tam2
+LESSER:
+    MOV ECX, msg2
+    MOV EDX, tam2
     
 GREATER:
     MOV ECX, msg1
