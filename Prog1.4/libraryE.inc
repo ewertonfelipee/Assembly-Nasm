@@ -8,6 +8,7 @@ segment .data
     SYS_READ    EQU 0X03    ; Operacao de leitura
     SYS_WRITE   EQU 0X04    ; Operacao de escrita
     SYS_CALL    EQU 0X80    ; Envia informacao ao SO
+
     TAM_BUFFER  EQU 0XA
 
 segment .bss

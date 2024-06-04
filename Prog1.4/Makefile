@@ -1,5 +1,5 @@
 TARGET = converte
-converte = converte.o
+OBJECT = converte.o
 
 all: $(OBJECT)
 	ld -s -o $(TARGET) $(OBJECT)

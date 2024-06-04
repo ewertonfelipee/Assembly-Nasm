@@ -2,7 +2,7 @@
 
 
 section .data
-    v1 dw '105', 0xa
+    v1 dw '115', LF, NULL
 
 section .text
 
@@ -28,7 +28,7 @@ mostrar_valor:
     ret
 
 string_to_int:
-    xor, ebx, ebx       ;   xor eh uma comparador de bit no qual se ambos
+    xor ebx, ebx       ;   xor eh uma comparador de bit no qual se ambos
                         ;   o resultado sera 0 para aquela posicao de bit
                         ;   isso eh uma forma de passar 0 para algo ao inves
                         ;   de simplmente enviar 0x0
@@ -44,3 +44,19 @@ string_to_int:
                         ;   da cadeia tenha sido lidos
     mov eax, ebx        ;   Move o conteudo de EBX para EAX
     ret                 ;   retorna
+
+int_to_string:
+  lea esi, [BUFFER]
+  add esi, 0x9
+  mov byte[esi], 0xA
+  mov ebx, 0xA
+
+.prox_digito:
+  xor edx, edx
+  div ebx
+  add dl, '0'
+  dec esi
+  mov [esi], dl
+  test eax, eax
+  jnz .prox_digito
+  ret
