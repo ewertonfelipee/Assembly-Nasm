@@ -24,8 +24,8 @@ section .text   ; onde o programa executa
 global _start
 
 _start:
-    MOV EAX, DWORD [x]
-    MOV EBX, DWORD [y]
+    MOV EAX, [x]
+    MOV EBX, [y]
     CMP EAX, EBX
     JGE  GREATER
     JLE  LESSER
